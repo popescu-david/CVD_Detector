@@ -1,0 +1,27 @@
+{% extends "Detector/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="container w-75 h-50 border border-1">
+        <form method="POST">
+            <legend class="border-bottom mb-4">Inregistrează-te astăzi</legend>
+            {% csrf_token %}
+            {% for field in form  %}
+              <div class="w-100 h-100 mb-3 mt-3 form-group">
+                <div class="ms-0 mb-1">{{ field.label_tag }}</div>
+                {{field}}
+                <div class="text text-danger mt-1 ms-0">{{ field.errors }}</div>
+                <div class="text text-muted mt-1 ms-2">{{ field.help_text}}</div>
+              </div>
+            {% endfor %}
+            <div class="text text-muted">
+                <button class=" btn btn-django" type="submit">Înregistrează-te</button>
+            </div>
+        </form>
+        <div class="border-top mt-3 mb-3">
+            <small class="text text-muted">
+                Ai deja un cont? <a class="ml-2" href="{% url 'login'%}">Loghează-te</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock content %}

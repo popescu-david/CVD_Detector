@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.nav-django {
+    background-color: #923846;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left-django, .nav-right-django {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand-django,
+.nav-item-django {
+    text-decoration: none;
+    color: #ffffff !important;
+    opacity: 0.75;
+    transition: opacity 0.3s;
+    font-size: 1rem;
+    margin-right: 1vw;
+}
+
+.nav-item-django:hover,
+.btn-link-django:hover {
+    opacity: 0.5;
+}
+
+.btn-link-django {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    color: #ffffff !important;
+    font-size: 1rem;
+}
+
+.bg-django {
+    background-color: #880015;
+}
+
+.text-django {
+    color: #880015 !important;
+}
+
+.text-accent {
+    color: #ffffff !important;
+    transition: opacity 0.3s;
+}
+
+.btn-django {
+    background-color: #880015;
+    color: #ffffff;
+}
+
+.btn-django:hover {
+    opacity: 0.5;
+}

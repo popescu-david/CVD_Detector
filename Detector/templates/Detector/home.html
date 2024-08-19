@@ -1,0 +1,303 @@
+{% extends "Detector/base.html" %}
+{% block content %}
+<div class="mt-4">
+    <div class="row">
+        <!-- Filters Box -->
+        <div class="filters-box ms-4" style="width: 15%; height:100%; padding: 1rem; border: 1px solid #ccc; background: #00000005;">
+            <form method="GET" action=".">
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="NSS_contains" style="font-size: 0.75em;">NSS:</label>
+                    <input class="form-control" type="text" name="NSS_contains" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Prenume_contains" style="font-size: 0.75em;">Prenume:</label>
+                    <input class="form-control" type="text" name="Prenume_contains" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Nume_contains" style="font-size: 0.75em;">Nume:</label>
+                    <input class="form-control" type="text" name="Nume_contains" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Email_contains" style="font-size: 0.75em;">Email:</label>
+                    <input class="form-control" type="text" name="Email_contains" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Vârstă_gte" style="font-size: 0.75em;">Vârstă Min:</label>
+                    <input class="form-control" type="number" name="Vârstă_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Vârstă_lte" style="font-size: 0.75em;">Vârstă Max:</label>
+                    <input class="form-control" type="number" name="Vârstă_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Sex" style="font-size: 0.75em;">Sex:</label>
+                    <select class="form-control" name="Sex" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Înălțime_gte" style="font-size: 0.75em;">Înălțime Min:</label>
+                    <input class="form-control" type="number" name="Înălțime_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Înălțime_lte" style="font-size: 0.75em;">Înălțime Max:</label>
+                    <input class="form-control" type="number" name="Înălțime_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Greutate_gte" style="font-size: 0.75em;">Greutate Min:</label>
+                    <input class="form-control" type="number" name="Greutate_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Greutate_lte" style="font-size: 0.75em;">Greutate Max:</label>
+                    <input class="form-control" type="number" name="Greutate_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="TMS_gte" style="font-size: 0.75em;">TMS Min:</label>
+                    <input class="form-control" type="number" name="TMS_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="TMS_lte" style="font-size: 0.75em;">TMS Max:</label>
+                    <input class="form-control" type="number" name="TMS_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="TMD_gte" style="font-size: 0.75em;">TMD Min:</label>
+                    <input class="form-control" type="number" name="TMD_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="TMD_lte" style="font-size: 0.75em;">TMD Max:</label>
+                    <input class="form-control" type="number" name="TMD_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Colesterol" style="font-size: 0.75em;">Colesterol:</label>
+                    <select class="form-control" name="Colesterol" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="1">Normal</option>
+                        <option value="2">Above Normal</option>
+                        <option value="3">Well Above Normal</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Glucoză" style="font-size: 0.75em;">Glucoză:</label>
+                    <select class="form-control" name="Glucoză" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="1">Normal</option>
+                        <option value="2">Above Normal</option>
+                        <option value="3">Well Above Normal</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Fumător" style="font-size: 0.75em;">Fumător:</label>
+                    <select class="form-control" name="Fumător" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Băutor" style="font-size: 0.75em;">Băutor:</label>
+                    <select class="form-control" name="Băutor" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Activ" style="font-size: 0.75em;">Activ:</label>
+                    <select class="form-control" name="Activ" style="width: 100%; font-size: 0.75em; padding: 0.25rem;">
+                        <option value="">Any</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Risc_Boală_gte" style="font-size: 0.75em;">Risc Boală Min:</label>
+                    <input class="form-control" type="number" name="Risc_Boală_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Risc_Boală_lte" style="font-size: 0.75em;">Risc Boală Max:</label>
+                    <input class="form-control" type="number" name="Risc_Boală_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Dată_Adăugare_date_gte" style="font-size: 0.75em;">Dată Adăugare Min:</label>
+                    <input class="form-control" type="date" name="Dată_Adăugare_date_gte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="text fw-bold mb1" for="Dată_Adăugare_date_lte" style="font-size: 0.75em;">Dată Adăugare Max:</label>
+                    <input class="form-control" type="date" name="Dată_Adăugare_date_lte" style="width: 100%; font-size: 0.75em; padding: 0.25rem;" />
+                </div>
+                <button type="submit" class="btn btn-django" style="width: 100%; font-size: 0.75em; padding: 0.25rem 0.5rem;">Apply Filters</button>
+            </form>
+        </div>  
+        <!-- End Filters Box -->
+        <div style="width: 83%;">
+            <!-- Add Patient Form Row -->
+            <table class="table table-bordered bg-light mb-4">
+                <tbody>
+                    <tr>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="add_patient">
+                            <td style="width: 6%; font-size: 0.75em;">
+                                <label class="fw-bold">NSS:</label><br>
+                                {{ form.NSS }}
+                            </td>
+                            <td style="width: 8%; font-size: 0.75em;">
+                                <label class="fw-bold">Prenume:</label><br>
+                                {{ form.Prenume }}
+                            </td>
+                            <td style="width: 8%; font-size: 0.75em;">
+                                <label class="fw-bold">Nume:</label><br>
+                                {{ form.Nume }}
+                            </td>
+                            <td style="width: 12%; font-size: 0.75em;">
+                                <label class="fw-bold">Email:</label><br>
+                                {{ form.Email }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Vârstă:</label><br>
+                                {{ form.Vârstă }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Sex:</label><br>
+                                {{ form.Sex }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Înălțime:</label><br>
+                                {{ form.Înălțime }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Greutate:</label><br>
+                                {{ form.Greutate }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">TAS:</label><br>
+                                {{ form.TAS }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">TAD:</label><br>
+                                {{ form.TAD }}
+                            </td>
+                            <td style="width: 6%; font-size: 0.75em;">
+                                <label class="fw-bold">Colesterol:</label><br>
+                                {{ form.Colesterol }}
+                            </td>
+                            <td style="width: 6%; font-size: 0.75em;">
+                                <label class="fw-bold">Glucoză:</label><br>
+                                {{ form.Glucoză }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Fumător:</label><br>
+                                {{ form.Fumător }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Băutor:</label><br>
+                                {{ form.Băutor }}
+                            </td>
+                            <td style="width: 4%; font-size: 0.75em;">
+                                <label class="fw-bold">Activitate:</label><br>
+                                {{ form.Activitate }}
+                            </td>
+                            <td style="width: 8%; font-size: 0.75em;">
+                                <button type="submit" class="btn btn-django w-100" style="font-size: 1em;">Adaugare Pacient</button>
+                            </td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- End Add Patient Form Row -->
+            <!-- Patients Table -->
+            <table class="table table-striped table-bordered bg-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="fw-bold" style="width: 6%; font-size: 0.75em;">NSS</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Prenume</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Nume</th>
+                        <th class="fw-bold" style="width: 12%; font-size: 0.75em;">Email</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Vârstă</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Sex</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Înălțime</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Greutate</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">TAS</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">TAD</th>
+                        <th class="fw-bold" style="width: 6%; font-size: 0.75em;">Colesterol</th>
+                        <th class="fw-bold" style="width: 6%; font-size: 0.75em;">Glucoză</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Fumător</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Băutor</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Activitate</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Risc Boală</th>
+                        <th class="fw-bold" style="width: 4%; font-size: 0.75em;">Dată Adăugare</th>
+                        <th class="fw-bold" style="width: 6%; font-size: 0.75em;">Acțiuni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Existing Patients Rows -->
+                    {% for patient in patients %}
+                    <tr>
+                        <td style="width: 6%; font-size: 0.65em;"><a href="{% url 'patient_detail' patient.NSS %}">{{ patient.NSS }}</a></td>
+                        <td style="width: 8%; font-size: 0.65em;">{{ patient.Prenume }}</td>
+                        <td style="width: 8%; font-size: 0.65em;">{{ patient.Nume }}</td>
+                        <td style="width: 12%; font-size: 0.65em;">{{ patient.Email }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Vârstă }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Sex }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Înălțime }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Greutate }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.TAS }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.TAD }}</td>
+                        <td style="width: 6%; font-size: 0.65em;">{{ patient.Colesterol }}</td>
+                        <td style="width: 6%; font-size: 0.65em;">{{ patient.Glucoză }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Fumător }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Băutor }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Activitate }}</td>
+                        <td style="width: 4%; font-size: 0.65em;">{{ patient.Risc_Boală }}</td>
+                        <td style="width: 8%; font-size: 0.65em;">{{ patient.Dată_Adăugare|date:"d/m/Y, H:i" }}</td>
+                       <td style="width: 6%; font-size: 0.65em;">
+                    <!-- Trigger Delete Modal -->
+                    <button type="button" class="btn btn-django btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ patient.id }}">Ștergere</button>
+                </td>
+                </tr>
+                <!-- Delete Modal -->
+                <div class="modal fade" id="deleteModal{{ patient.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ patient.id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel{{ patient.id }}">Confirmare Ștergere</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Închide"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Sigur dorești să elimini această intrare?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anulează</button>
+                                <form method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="patientId" value="{{ patient.id }}">
+                                    <button type="submit" class="btn btn-django">Șterge</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </tbody>
+            </table>
+            <!-- End Patients Table -->
+            <!-- Pagination Controls -->
+            <nav style="display: flex; justify-content: center;">
+                <ul class="pagination">
+                    {% if patients.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ patients.previous_page_number }}" style="color: #880015;">&larr;</a></li>
+                    {% endif %}
+                    <li class="page-item disabled"><a class="page-link" style="background: #880015; color:#fff">Pagina {{ patients.number }} din {{ patients.paginator.num_pages }}</a></li>
+                    {% if patients.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ patients.next_page_number }}" style="color: #880015;">&rarr;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <!-- End Pagination Controls -->
+        </div>
+    </div>
+</div>
+{% endblock %}

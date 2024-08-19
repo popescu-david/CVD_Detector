@@ -1,0 +1,23 @@
+{% load static %}
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="{% static 'Detector/custom_style.css' %}">
+<header style="margin-bottom: 85px">
+    <nav class="nav-django bg-django">
+        <div class="nav-left-django">
+            <a class="nav-brand-django text-accent" href="{% url 'home' %}">CARDIOTEST</a>
+            <a class="nav-item-django text-accent" href="{% url 'about' %}">Despre Noi</a>
+        </div>
+        <div class="nav-right-django">
+            {% if user.is_authenticated %}
+                <a class="nav-item-django text-accent" href="{% url 'profile' %}">Profilul Tău</a>
+                <form action="{% url 'logout' %}" method="post" class="nav-item-django">
+                    {% csrf_token %}
+                    <button class="btn-link-django text-accent" type="submit">Deloghează-te</button>
+                </form>
+            {% else %}
+                <a class="nav-item-django text-accent" href="{% url 'register' %}">Înregistrează-te</a>
+                <a class="nav-item-django text-accent" href="{% url 'login' %}">Loghează-te</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

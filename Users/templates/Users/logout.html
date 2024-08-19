@@ -1,0 +1,11 @@
+{% extends "Detector/base.html" %}
+{% block content %}
+<div class="container">
+        <h2>Ai fost deconectat!</h2>
+        <div class="border-top mt-3 mb-3">
+            <small class="text text-muted">
+                <a href="{% url 'login'%}">Loghează-te din nou!</a>
+            </small>
+        </div>
+</div>
+{% endblock content %}
